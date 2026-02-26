@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch('https://sooraj-portfolio-backend.onrender.com/api/contact', {
+        const response = await fetch('https://your-project-url.vercel.app/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
