@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Coaching Classes Project | The_Helper</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Roboto:400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">The_Helper</div>
+      <ul class="nav-links">
+        <!-- Link back to the main page -->
+        <li><a href="index.html"><i class="fas fa-arrow-left nav-icon"></i> Back to Portfolio</a></li>
+      </ul>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+      <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Title Section -->
+    <section class="hero" style="padding-top: 8rem; padding-bottom: 2rem;">
+      <div class="hero-content">
+        <h1>Computer Coaching Classes Website</h1>
+        <p class="intro">A comprehensive educational platform for students and instructors.</p>
+      </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section class="about">
+      <div class="about-card" style="max-width: 1000px;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">Project Gallery</h3>
+        
+        <!-- Image Slider -->
+        <div class="slider-container">
+          <div class="slider-wrapper">
+            <div class="slide"><img src="assets/photos/classes1.png" alt="Classes Home Page"></div>
+            <div class="slide"><img src="assets/photos/classes2.png" alt="Course Listings"></div>
+            <div class="slide"><img src="assets/photos/classes3.png" alt="Student Portal"></div>
+            <div class="slide"><img src="assets/photos/classes4.png" alt="Registration Form"></div>
+          </div>
+          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          <div class="dots-container" id="dots"></div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+          <p>This project features a responsive design with course management, student registration, and an intuitive user interface built with Bootstrap.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <a href="#" class="scroll-to-top-btn" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Sooraj Sikarwar. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="index.html" style="color: #fff; text-decoration: underline;">Return Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slider Script -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots');
+    const sliderContainer = document.querySelector('.slider-container');
+    let autoSlideInterval;
+
+    // Create dots dynamically
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.onclick = () => currentSlide(idx);
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlides(n) {
+      if (n >= slides.length) slideIndex = 0;
+      if (n < 0) slideIndex = slides.length - 1;
+      
+      // Hide all slides and deactivate all dots
+      slides.forEach(slide => slide.classList.remove('active-slide'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      // Show the current slide and activate the corresponding dot
+      slides[slideIndex].classList.add('active-slide');
+      dots[slideIndex].classList.add('active');
+    }
+
+    function moveSlide(n) {
+      slideIndex += n;
+      showSlides(slideIndex);
+      resetTimer();
+    }
+
+    function currentSlide(n) {
+      slideIndex = n;
+      showSlides(slideIndex);
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => moveSlide(1), 3000); // Change slide every 3 seconds
+    }
+
+    // Pause slider on hover and resume on mouse leave
+    sliderContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoSlideInterval);
+    });
+    sliderContainer.addEventListener('mouseleave', () => {
+      resetTimer();
+    });
+
+    // Initialize slider
+    showSlides(slideIndex);
+    resetTimer();
+
+    // Scroll to Top Button Logic
+    const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
+
+    if (scrollToTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      });
+
+      scrollToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Apply saved theme on load
+    if (currentTheme === 'dark-mode') {
+      document.body.classList.add('dark-mode');
+      themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
+    });
+
+    // Hamburger Menu Logic
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        // For accessibility
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+      });
+    }
+  </script>
+</body>
+</html>
