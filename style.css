@@ -2,7 +2,7 @@
   Portfolio Website Stylesheet
   Author: Sooraj Sikarwar
   Color palette: Navy (#14213d), White (#fff), Teal (#20bfa9)
-  Fonts: Montserrat for headings, Roboto for body text
+  Fonts: Playfair Display for headings, Inter for body text
 */
 
 :root {
@@ -12,7 +12,7 @@
   --text-secondary: #555;
   --accent-primary: #20bfa9;
   --accent-secondary: #14213d;
-  --header-bg: rgba(20, 33, 61, 0.95);
+  --header-bg: linear-gradient(90deg, rgba(20, 33, 61, 0.98), rgba(20, 33, 61, 0.9));
   --header-text: #ffffff;
   --card-bg: #ffffff;
   --card-border: rgba(0, 0, 0, 0.03);
@@ -30,7 +30,7 @@ body.dark-mode {
   --text-primary: #f0f4f8;
   --text-secondary: #adb5bd;
   --accent-secondary: #ffffff;
-  --header-bg: rgba(0, 8, 20, 0.9);
+  --header-bg: linear-gradient(90deg, rgba(0, 8, 20, 0.95), rgba(0, 8, 20, 0.85));
   --card-bg: #1d2d44;
   --card-border: rgba(255, 255, 255, 0.08);
   --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
@@ -41,18 +41,22 @@ body.dark-mode {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   background: var(--bg-primary);
   color: var(--text-primary);
   scroll-behavior: smooth;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
 }
 
 /* Global anchor styling */
@@ -211,18 +215,14 @@ a {
   transition: background 0.5s ease;
 }
 
-.about h2 {
+.about h2, .projects h2, .services h2, .contact h2, .guides h2, .skills-universe h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--text-primary);
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-.about h2::after, .projects h2::after, .services h2::after, .contact h2::after {
+.about h2::after, .projects h2::after, .services h2::after, .contact h2::after, .guides h2::after, .skills-universe h2::after {
   content: '';
   display: block;
   width: 80px;
@@ -230,6 +230,14 @@ a {
   background: var(--accent-primary);
   margin: 10px auto 0;
   border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+h2.reveal.visible::after {
+  transform: scaleX(1);
+  transition-delay: 0.3s;
 }
 
 .about-card {
@@ -241,6 +249,11 @@ a {
   box-shadow: var(--card-shadow);
   border: 1px solid var(--card-border);
   font-size: 1.05rem;
+}
+
+.guide-section-icon {
+  color: var(--accent-primary);
+  margin-right: 0.75rem;
 }
 
 .about-card p {
@@ -286,17 +299,6 @@ a {
   transition: background 0.5s ease;
 }
 
-.projects h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--text-primary);
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -306,7 +308,7 @@ a {
 }
 
 .project-card {
-  background: var(--card-bg);
+  background: var(--hero-gradient);
   border-radius: 1.5rem;
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
@@ -366,17 +368,6 @@ a {
   transition: background 0.5s ease;
 }
 
-.services h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--text-primary);
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .service-icon {
   width: 80px;
   height: 80px;
@@ -434,17 +425,6 @@ a {
   padding: 4rem 1rem;
   color: var(--text-primary);
   transition: background 0.5s ease;
-}
-
-.contact h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--text-primary);
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .contact-form {
@@ -651,6 +631,100 @@ a {
   }
 }
 
+/* Guides Section */
+.guides {
+  padding: 4rem 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.guides-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.guides-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0.5rem;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.guides-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.guide-item {
+  flex: 0 0 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.guide-item:hover {
+  transform: translateY(-5px);
+}
+
+.guide-item:hover .guide-card {
+  box-shadow: 0 15px 30px -10px rgba(0,0,0,0.15);
+  border-color: var(--accent-primary);
+}
+
+.guide-item:hover .guide-title {
+  color: var(--accent-primary);
+}
+
+.guide-card {
+  border-radius: 1.5rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
+  transition: box-shadow 0.3s, border-color 0.3s;
+  min-height: 160px;
+  background-size: cover;
+  background-position: center;
+}
+
+.guide-title {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.slider-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.slider-btn:hover {
+  background: var(--accent-primary);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .slider-btn {
+    display: none;
+  }
+}
+
 /* Scroll Animation */
 .reveal {
   opacity: 0;
@@ -841,4 +915,344 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Skills Section 2-Column Layout */
+.skills-universe-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Left Column - Written Skills */
+.skills-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-content: flex-start;
+}
+
+.skills-sidebar h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  flex-basis: 100%; /* Ensure heading takes full width */
+}
+
+.skills-sidebar .skill-box {
+  background: var(--card-bg);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.skills-sidebar .skill-box:hover {
+  transform: translateX(10px);
+  box-shadow: 0 8px 25px rgba(32, 191, 169, 0.2);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* Right Column - 3D Model/Carousel */
+.carousel-wrapper {
+  min-height: 500px;
+}
+
+/* Responsive - Single column on tablet */
+@media (max-width: 900px) {
+  .skills-universe-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .carousel-wrapper {
+    order: -1; /* Show 3D model first on mobile */
+    min-height: 400px;
+  }
+}
+
+/* Responsive - Single column on mobile */
+@media (max-width: 600px) {
+  .skills-universe-container {
+    gap: 1.5rem;
+  }
+  
+  .skills-sidebar {
+    gap: 0.75rem;
+  }
+  
+  .skills-sidebar .skill-box {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-scene {
+    height: 350px;
+  }
+}
+
+/* 3D Carousel Styles */
+.carousel-scene {
+  margin: 40px auto;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.carousel-scene:active {
+  cursor: grabbing;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.carousel-cell {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+
+.skill-sphere {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.skill-sphere:hover {
+    transform: scale(1.1);
+}
+
+.skill-surface {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, var(--accent-primary) 40%, #0a1525 100%);
+    border-radius: 50%;
+    box-shadow: 
+        inset -10px -10px 20px rgba(0,0,0,0.8), 
+        0 0 30px rgba(32, 191, 169, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #fff;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: box-shadow 0.3s, opacity 0.4s ease;
+    z-index: 2;
+}
+
+.sphere-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(32, 191, 169, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.ring-1 {
+    width: 140px;
+    height: 140px;
+    margin-left: -70px;
+    margin-top: -70px;
+    animation: orbit-1 12s linear infinite;
+}
+
+.ring-2 {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px;
+    margin-top: -85px;
+    animation: orbit-2 10s linear infinite reverse;
+}
+
+.ring-3 {
+    width: 200px;
+    height: 200px;
+    margin-left: -100px;
+    margin-top: -100px;
+    animation: orbit-3 15s linear infinite;
+}
+
+@keyframes orbit-1 {
+    from { transform: rotateX(75deg) rotateY(20deg) rotateZ(0deg); }
+    to   { transform: rotateX(75deg) rotateY(20deg) rotateZ(360deg); }
+}
+
+@keyframes orbit-2 {
+    from { transform: rotateX(85deg) rotateY(50deg) rotateZ(0deg); }
+    to   { transform: rotateX(85deg) rotateY(50deg) rotateZ(360deg); }
+}
+
+@keyframes orbit-3 {
+    from { transform: rotateX(70deg) rotateY(80deg) rotateZ(0deg); }
+    to   { transform: rotateX(70deg) rotateY(80deg) rotateZ(360deg); }
+}
+
+.skill-label {
+    position: absolute;
+    bottom: 20px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    transition: color 0.3s, opacity 0.4s ease;
+    transform: translateZ(20px);
+}
+
+.skill-sphere:hover .skill-surface {
+  box-shadow: 
+      inset -10px -10px 20px rgba(0,0,0,0.8), 
+      0 0 50px rgba(32, 191, 169, 1);
+}
+
+.skill-sphere:hover .skill-label {
+  color: #fff;
+}
+
+.skill-definition {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(20, 33, 61, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-definition h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+}
+
+.skill-definition p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--bg-primary);
+}
+
+/* Skill Sphere Color Overrides */
+.skill-java .skill-surface {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, #f89820 40%, #25180a 100%);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 30px rgba(248, 152, 32, 0.6);
+}
+.skill-java .sphere-ring {
+  border-color: rgba(248, 152, 32, 0.4);
+}
+.skill-java:hover .skill-surface {
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 50px rgba(248, 152, 32, 1);
+}
+
+.skill-html .skill-surface {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, #e34f26 40%, #25100a 100%);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 30px rgba(227, 79, 38, 0.6);
+}
+.skill-html .sphere-ring {
+  border-color: rgba(227, 79, 38, 0.4);
+}
+.skill-html:hover .skill-surface {
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 50px rgba(227, 79, 38, 1);
+}
+
+.skill-css .skill-surface {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, #1572b6 40%, #0a1525 100%);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 30px rgba(21, 114, 182, 0.6);
+}
+.skill-css .sphere-ring {
+  border-color: rgba(21, 114, 182, 0.4);
+}
+.skill-css:hover .skill-surface {
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 50px rgba(21, 114, 182, 1);
+}
+
+.skill-js .skill-surface {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, #f7df1e 40%, #302a0a 100%);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 30px rgba(247, 223, 30, 0.6);
+  color: #333;
+}
+.skill-js .sphere-ring {
+  border-color: rgba(247, 223, 30, 0.4);
+}
+.skill-js:hover .skill-surface {
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 50px rgba(247, 223, 30, 1);
+}
+
+.skill-flutter .skill-surface {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, #02569b 40%, #0a1025 100%);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 30px rgba(2, 86, 155, 0.6);
+}
+.skill-flutter .sphere-ring {
+  border-color: rgba(2, 86, 155, 0.4);
+}
+.skill-flutter:hover .skill-surface {
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 50px rgba(2, 86, 155, 1);
+}
+
+.skill-nodejs .skill-surface {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, #339933 40%, #0a250a 100%);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 30px rgba(51, 153, 51, 0.6);
+}
+.skill-nodejs .sphere-ring {
+  border-color: rgba(51, 153, 51, 0.4);
+}
+.skill-nodejs:hover .skill-surface {
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 50px rgba(51, 153, 51, 1);
+}
+
+.skill-sphere:hover .skill-definition {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.skill-sphere:hover .skill-surface,
+.skill-sphere:hover .sphere-ring,
+.skill-sphere:hover .skill-label {
+  opacity: 0;
+  transition-delay: 0s;
 }

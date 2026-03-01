@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The_Helper | Web Developer & Freelancer</title>
-  <!-- Google Fonts for typography -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Playfair Display for headings, Inter for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <!-- Material Icons for vector icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Font Awesome for additional icons -->
@@ -23,6 +23,7 @@
         <li><a href="#hero"><i class="fas fa-home nav-icon"></i> Home</a></li>
         <li><a href="#about"><i class="fas fa-user nav-icon"></i> About</a></li>
         <li><a href="#projects"><i class="fas fa-folder-open nav-icon"></i> Projects</a></li>
+        <li><a href="#skills"><i class="fas fa-brain nav-icon"></i> Skills</a></li>
         <li><a href="#services"><i class="fas fa-concierge-bell nav-icon"></i> Services</a></li>
         <li><a href="#contact"><i class="fas fa-envelope nav-icon"></i> Contact</a></li>
       </ul>
@@ -55,34 +56,105 @@
 
     <!-- About Section: Card Layout -->
     <section id="about" class="about">
-      <h2>About Me</h2>
+      <h2 class="reveal">About Me</h2>
       <div class="about-card reveal">
         <p>Hi, I'm <strong>Sooraj Sikarwar</strong>. I'm a developer who actually cares about design. I specialize in building modern, interactive websites that capture a brand's unique personality. I bridge the gap between the technical 'how' and the creative 'why'. Always learning, always growing.</p>
       </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills-universe">
+      <h2 class="reveal">Skills</h2>
+      <div class="skills-universe-container">
+        <aside class="skills-sidebar reveal">
+          <h3>Core Competencies</h3>
+          <div class="skill-box">Java</div>
+          <div class="skill-box">HTML5</div>
+          <div class="skill-box">CSS3</div>
+          <div class="skill-box">JavaScript</div>
+          <div class="skill-box">Flutter</div>
+          <div class="skill-box">Node.js</div>
+        </aside>
+        <div class="carousel-wrapper">
+          <div class="carousel-scene reveal">
+            <div class="carousel">
+              <div class="carousel-cell">
+                <div class="skill-sphere skill-java">
+                  <div class="skill-surface"><i class="fab fa-java"></i></div>
+                  <div class="sphere-ring ring-1"></div><div class="sphere-ring ring-2"></div><div class="sphere-ring ring-3"></div>
+                  <div class="skill-definition"><h3>Java</h3><p>A versatile, object-oriented language for building robust, cross-platform applications.</p></div>
+                  <span class="skill-label">Java</span>
+                </div>
+              </div>
+              <div class="carousel-cell">
+                <div class="skill-sphere skill-html">
+                  <div class="skill-surface"><i class="fab fa-html5"></i></div>
+                  <div class="sphere-ring ring-1"></div><div class="sphere-ring ring-2"></div><div class="sphere-ring ring-3"></div>
+                  <div class="skill-definition"><h3>HTML5</h3><p>The standard markup language for creating web pages with semantic structure.</p></div>
+                  <span class="skill-label">HTML5</span>
+                </div>
+              </div>
+              <div class="carousel-cell">
+                <div class="skill-sphere skill-css">
+                  <div class="skill-surface"><i class="fab fa-css3-alt"></i></div>
+                  <div class="sphere-ring ring-1"></div><div class="sphere-ring ring-2"></div><div class="sphere-ring ring-3"></div>
+                  <div class="skill-definition"><h3>CSS3</h3><p>The stylesheet language used for describing the presentation of a document.</p></div>
+                  <span class="skill-label">CSS3</span>
+                </div>
+              </div>
+              <div class="carousel-cell">
+                <div class="skill-sphere skill-js">
+                  <div class="skill-surface"><i class="fab fa-js-square"></i></div>
+                  <div class="sphere-ring ring-1"></div><div class="sphere-ring ring-2"></div><div class="sphere-ring ring-3"></div>
+                  <div class="skill-definition"><h3>JavaScript</h3><p>A high-level language that enables interactive web pages and dynamic content.</p></div>
+                  <span class="skill-label">JavaScript</span>
+                </div>
+              </div>
+              <div class="carousel-cell">
+                <div class="skill-sphere skill-flutter">
+                  <div class="skill-surface"><i class="fas fa-mobile-alt"></i></div>
+                  <div class="sphere-ring ring-1"></div><div class="sphere-ring ring-2"></div><div class="sphere-ring ring-3"></div>
+                  <div class="skill-definition"><h3>Flutter</h3><p>A UI toolkit for building beautiful, natively compiled applications from a single codebase.</p></div>
+                  <span class="skill-label">Flutter</span>
+                </div>
+              </div>
+              <div class="carousel-cell">
+                <div class="skill-sphere skill-nodejs">
+                  <div class="skill-surface"><i class="fab fa-node-js"></i></div>
+                  <div class="sphere-ring ring-1"></div><div class="sphere-ring ring-2"></div><div class="sphere-ring ring-3"></div>
+                  <div class="skill-definition"><h3>Node.js</h3><p>A JavaScript runtime for building fast and scalable network applications.</p></div>
+                  <span class="skill-label">Node.js</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Projects Section: Grid of Cards -->
     <section id="projects" class="projects">
-      <h2>Projects</h2>
+      <h2 class="reveal">My Projects</h2>
       <div class="project-list">
-        <!-- Project Card Example -->
-<div class="project-card reveal">
-          <!-- wedding site background image used -->
+        <div class="project-card reveal">
+          <img src="assets/photos/wedding.png" alt="Wedding Website Project Thumbnail">
           <h3>Wedding Website</h3>
           <div class="tech-stack">HTML, CSS, JavaScript</div>
-          <p>A beautiful, interactive wedding website with RSVP and gallery.</p>
+          <p>A beautiful, interactive wedding website with RSVP and gallery features.</p>
           <a href="wedding-project.html" class="project-link">View Project</a>
         </div>
         <div class="project-card reveal">
-          <h3>Computer Coaching Classes Website</h3>
-          <div class="tech-stack">HTML, CSS, JavaScript, Bootstrap</div>
-          <p>A responsive educational website featuring course listings, student registration, and an online learning portal.</p>
+          <img src="assets/photos/classes1.png" alt="Coaching Classes Website Project Thumbnail">
+          <h3>Coaching Classes Website</h3>
+          <div class="tech-stack">HTML, CSS, JS, Bootstrap</div>
+          <p>A responsive educational platform for course listings and student registration.</p>
           <a href="classes-project.html" class="project-link">View Project</a>
         </div>
         <div class="project-card reveal">
-          <h3>Sample Vendor Websites</h3>
-          <div class="tech-stack">HTML, CSS, JavaScript</div>
-          <p>Modern, responsive websites for restaurants, shops, and tutors. Each site is tailored to the client's brand and needs.</p>
+          <img src="assets/photos/ecommerce.jpg" alt="E-commerce Project Thumbnail">
+          <h3>E-commerce Platform</h3>
+          <div class="tech-stack">React, Node.js, Express</div>
+          <p>A sample e-commerce site with product listings, cart, and checkout functionality.</p>
           <a href="#" class="project-link">View Project</a>
         </div>
       </div>
@@ -90,7 +162,7 @@
 
     <!-- Services Section: Three Cards -->
     <section id="services" class="services">
-      <h2>Services</h2>
+      <h2 class="reveal">Services</h2>
       <div class="service-cards">
         <div class="service-card reveal">
           <i class="fas fa-paint-brush service-icon"></i>
@@ -110,9 +182,40 @@
       </div>
     </section>
 
+    <!-- Guides Section: Horizontal Slider -->
+    <section id="guides" class="guides">
+      <h2 class="reveal">Guides to help you grow</h2>
+      <div class="guides-container reveal">
+        <button class="slider-btn prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="guides-slider" id="guides-slider">
+          <a href="side-business-guide.html" class="guide-item">
+            <div class="guide-card" style="background-image: url('assets/photos/sideBusiness.jpg');"></div>
+            <p class="guide-title">Start a side business</p>
+          </a>
+          <a href="online-business-guide.html" class="guide-item">
+            <div class="guide-card" style="background-image: url('assets/photos/workFromHome.jpg');"></div>
+            <p class="guide-title">Start an online business and work from home</p>
+          </a>
+          <a href="ecommerce-guide.html" class="guide-item">
+            <div class="guide-card" style="background-image: url('assets/photos/ecommerce.jpg');"></div>
+            <p class="guide-title">Ecommerce business Ideas</p>
+          </a>
+          <a href="ai-business-guide.html" class="guide-item">
+            <div class="guide-card" style="background-image: url('assets/photos/businessAi.webp');"></div>
+            <p class="guide-title">Grow your business with AI</p>
+          </a>
+          <a href="logo-guide.html" class="guide-item">
+            <div class="guide-card" style="background-image: url('assets/photos/createLogo.webp');"></div>
+            <p class="guide-title">Create Logo for your Business</p>
+          </a>
+        </div>
+        <button class="slider-btn next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
     <!-- Contact Section: Form & Social -->
     <section id="contact" class="contact">
-      <h2>Contact Me</h2>
+      <h2 class="reveal">Contact Me</h2>
       <form id="contact-form" class="contact-form reveal">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -139,6 +242,7 @@
         <a href="#hero">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
@@ -149,5 +253,94 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('guides-slider');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      let autoSlideInterval;
+      const scrollAmount = 300;
+
+      const startAutoSlide = () => {
+        autoSlideInterval = setInterval(() => {
+          if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        }, 3000);
+      };
+
+      const stopAutoSlide = () => clearInterval(autoSlideInterval);
+
+      startAutoSlide();
+
+      slider.addEventListener('mouseenter', stopAutoSlide);
+      slider.addEventListener('mouseleave', startAutoSlide);
+      slider.addEventListener('touchstart', stopAutoSlide);
+      slider.addEventListener('touchend', startAutoSlide);
+
+      prevBtn.addEventListener('click', () => { stopAutoSlide(); slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' }); startAutoSlide(); });
+      nextBtn.addEventListener('click', () => { stopAutoSlide(); slider.scrollBy({ left: scrollAmount, behavior: 'smooth' }); startAutoSlide(); });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 3D Skill Universe Carousel
+      const carousel = document.querySelector('#skills .carousel');
+      if (carousel) {
+        const scene = document.querySelector('#skills .carousel-scene');
+        const cells = carousel.querySelectorAll('.carousel-cell');
+        const cellCount = cells.length;
+        let currentAngle = 0;
+        const radius = 400;
+        const theta = 360 / cellCount;
+        const tilt = 15;
+        const autoRotateSpeed = 0.2;
+
+        function updateCarousel() {
+          carousel.style.transform = `translateZ(${-radius}px) rotateX(${tilt}deg) rotateY(${currentAngle}deg)`;
+          cells.forEach((cell, i) => {
+            const cellAngle = theta * i;
+            cell.style.transform = `rotateY(${cellAngle}deg) translateZ(${radius}px) rotateY(${-currentAngle - cellAngle}deg) rotateX(${-tilt}deg)`;
+          });
+        }
+
+        let isDragging = false;
+        let startX = 0;
+        let startAngle = 0;
+
+        scene.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          scene.style.cursor = 'grabbing';
+          startX = e.clientX;
+          startAngle = currentAngle;
+          carousel.style.transition = 'none';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          const x = e.clientX;
+          const diff = (x - startX) * 0.5;
+          currentAngle = startAngle + diff;
+          updateCarousel();
+        });
+
+        window.addEventListener('mouseup', () => {
+          isDragging = false;
+          scene.style.cursor = 'grab';
+        });
+
+        function animate() {
+          if (!isDragging) {
+            currentAngle += autoRotateSpeed;
+            updateCarousel();
+          }
+          requestAnimationFrame(animate);
+        }
+        animate();
+      }
+    });
+  </script>
 </body>
 </html>

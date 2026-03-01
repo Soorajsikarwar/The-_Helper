@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce Business Ideas Guide | The_Helper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">The_Helper</div>
+      <ul class="nav-links">
+        <li><a href="index.html#guides"><i class="fas fa-arrow-left nav-icon"></i> Back to Guides</a></li>
+      </ul>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+      <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-top: 10rem; padding-bottom: 6rem; background-image: linear-gradient(rgba(20, 33, 61, 0.85), rgba(20, 33, 61, 0.75)), url('assets/photos/ecommerce.jpg'); background-size: cover; background-position: center; color: #fff;">
+      <div class="hero-content">
+        <h1>Guide: Ecommerce Business Ideas</h1>
+        <p class="intro" style="color: rgba(255, 255, 255, 0.9);">Here are some profitable e-commerce business ideas you can consider if you want to start selling online:</p>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about-card" style="max-width: 1000px; text-align: left;">
+        <h3 style="text-align: center; margin-top: 2rem; margin-bottom: 1rem;"><i class="fas fa-lightbulb guide-section-icon"></i>E-commerce Business Ideas</h3>
+        <ul>
+          <li><strong>Print-on-Demand Products</strong> – Sell custom t-shirts, mugs, or stationery without holding inventory.</li>
+          <li><strong>Digital Product Sales</strong> – E-books, templates, stock photos, or software.</li>
+          <li><strong>Affiliate Marketing</strong> – Promote products and earn commissions.</li>
+          <li><strong>Dropshipping</strong> – Partner with suppliers who ship directly to customers.</li>
+          <li><strong>Online Courses</strong> – Teach skills like coding, design, or language.</li>
+          <li><strong>Subscription Boxes</strong> – Curated monthly packages (beauty, snacks, books).</li>
+          <li><strong>Private Label Products</strong> – Brand generic items under your own name.</li>
+          <li><strong>Handmade Crafts & Art</strong> – Sell unique, creative items on Etsy or similar platforms.</li>
+          <li><strong>Web Design Services</strong> – Offer website creation and maintenance.</li>
+          <li><strong>Social Media Management</strong> – Manage accounts for small businesses.</li>
+          <li><strong>Copywriting & Content Writing</strong> – Provide blogs, ads, or SEO content.</li>
+          <li><strong>Virtual Assistant Services</strong> – Handle admin tasks remotely.</li>
+          <li><strong>Online Marketplace Creation</strong> – Build niche platforms for buyers and sellers.</li>
+          <li><strong>Buy-to-Flip Arbitrage</strong> – Purchase discounted products and resell at profit.</li>
+        </ul>
+
+        <div style="margin: 3rem 0; text-align: center;"><img src="assets/photos/businessAi.webp" alt="E-commerce Analytics" style="width: 100%; max-width: 800px; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+
+        <h3 style="text-align: center; margin-top: 2rem; margin-bottom: 1rem;"><i class="fas fa-balance-scale guide-section-icon"></i>Key Considerations</h3>
+        <ul>
+          <li><strong>Low investment options:</strong> Dropshipping, affiliate marketing, digital products.</li>
+          <li><strong>Creative options:</strong> Print-on-demand, handmade crafts, subscription boxes.</li>
+          <li><strong>Skill-based options:</strong> Web design, social media management, online courses.</li>
+        </ul>
+
+        <p>👉 <strong>In summary:</strong> e-commerce offers flexibility — you can start lean with digital products or dropshipping, or go creative with print-on-demand and subscription boxes. The best idea depends on your skills, interests, and how much time you want to invest.</p>
+        <p><em>Would you like me to rank these ideas by startup cost vs. earning potential so you can quickly see which ones are most practical to begin with?</em></p>
+      </div>
+    </section>
+  </main>
+
+  <a href="#" class="scroll-to-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></a>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Sooraj Sikarwar. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="index.html" style="color: #fff; text-decoration: underline;">Return Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
+    if (scrollToTopBtn) {
+      window.addEventListener('scroll', () => { window.scrollY > 300 ? scrollToTopBtn.classList.add('show') : scrollToTopBtn.classList.remove('show'); });
+      scrollToTopBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    }
+    const themeToggle = document.getElementById('checkbox');
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark-mode') { document.body.classList.add('dark-mode'); themeToggle.checked = true; }
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) { document.body.classList.add('dark-mode'); localStorage.setItem('theme', 'dark-mode'); } 
+      else { document.body.classList.remove('dark-mode'); localStorage.setItem('theme', 'light-mode'); }
+    });
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+      });
+    }
+  </script>
+</body>
+</html>
