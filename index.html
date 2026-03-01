@@ -48,7 +48,7 @@
         <div>
           <h1>Hello, I'm <span class="highlight">Sooraj</span></h1>
           <p class="typing-effect" id="typing"></p>
-          <p class="intro">I build websites with AI and code.</p>
+          <p class="intro">I build websites for businesses and individuals.</p>
           <a href="#projects" class="cta-btn">View My Work</a>
         </div>
       </div>
@@ -293,7 +293,7 @@
         const cells = carousel.querySelectorAll('.carousel-cell');
         const cellCount = cells.length;
         let currentAngle = 0;
-        const radius = 400;
+        let radius = window.innerWidth < 600 ? 160 : (window.innerWidth < 900 ? 280 : 400);
         const theta = 360 / cellCount;
         const tilt = 15;
         const autoRotateSpeed = 0.2;
@@ -329,6 +329,10 @@
         window.addEventListener('mouseup', () => {
           isDragging = false;
           scene.style.cursor = 'grab';
+        });
+
+        window.addEventListener('resize', () => {
+          radius = window.innerWidth < 600 ? 160 : (window.innerWidth < 900 ? 280 : 400);
         });
 
         function animate() {

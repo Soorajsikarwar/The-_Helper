@@ -49,6 +49,7 @@ body {
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: 0.01em;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
@@ -613,11 +614,17 @@ h2.reveal.visible::after {
   .service-cards {
     flex-direction: column;
   }
+
+  .carousel-cell { width: 160px; height: 160px; margin-left: -80px; margin-top: -80px; }
+  .skill-surface { width: 90px; height: 90px; font-size: 2.5rem; }
+  .ring-1 { width: 110px; height: 110px; margin-left: -55px; margin-top: -55px; }
+  .ring-2 { width: 130px; height: 130px; margin-left: -65px; margin-top: -65px; }
+  .ring-3 { width: 150px; height: 150px; margin-left: -75px; margin-top: -75px; }
 }
 
 @media (max-width: 600px) {
   .hero {
-    padding: 5rem 1rem 3rem 1rem;
+    padding: 5rem 1rem 3rem 1rem !important;
   }
   .profile-img {
     width: 140px;
@@ -628,6 +635,31 @@ h2.reveal.visible::after {
   }
   .typing-effect {
     font-size: 1.1rem;
+  }
+
+  .carousel-cell {
+    width: 140px;
+    height: 140px;
+    margin-left: -70px;
+    margin-top: -70px;
+  }
+  .skill-surface {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+  .ring-1 { width: 100px; height: 100px; margin-left: -50px; margin-top: -50px; }
+  .ring-2 { width: 120px; height: 120px; margin-left: -60px; margin-top: -60px; }
+  .ring-3 { width: 140px; height: 140px; margin-left: -70px; margin-top: -70px; }
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    padding: 1.5rem;
+  }
+  .about h2, .projects h2, .services h2, .contact h2, .guides h2, .skills-universe h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
